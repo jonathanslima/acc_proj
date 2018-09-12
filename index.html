@@ -4,11 +4,23 @@
 		<title>Acc Projeto</title>
 	</head>
 	<body>
+		<div class="component-warning">
+			<div class="alert alert-success" role="alert">
+			  A simple success alert—check it out!
+			</div>
+			<div class="alert alert-danger" role="alert">
+			  A simple danger alert—check it out!
+			</div>
+			<div class="alert alert-warning" role="alert">
+			  A simple warning alert—check it out!
+			</div>
+		</div>
+
 		<section class="home-access">
-			<form id="form-login">
-				<input id="user" type="text" placeholder="Name"></input>
-				<input id="pass" type="text" placeholder="Password"></input>
-				<button id="btn-login" class="text-uppercase">Access List</button>
+			<form id="form-login" class="form-login form-signin">
+				<input id="user" class="input form-control input-login" type="text" placeholder="Name"></input>
+				<input id="pass" class="input form-control input-login" type="text" placeholder="Password"></input>
+				<button id="btn-login" class="btn button-outline">Access List</button>
 			</form>
 		</section>
 
