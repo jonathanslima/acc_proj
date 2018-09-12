@@ -6,14 +6,23 @@
 	<body>
 		<section class="home-access">
 			<form id="form-login">
-				<input id="nome" type="text"></input>
-				<input id="pass" type="text"></input>
-				<button id="btn-login">Entrar</button>
+				<input id="user" type="text" placeholder="Name"></input>
+				<input id="pass" type="text" placeholder="Password"></input>
+				<button id="btn-login" class="text-uppercase">Access List</button>
 			</form>
 		</section>
 
+		<!-- styles -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-		<link href="css/home.css" rel="stylesheet">
-		<link href="node_modules/" rel="stylesheet">
+		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/all.css" rel="stylesheet">
+		<!-- end styles -->
+
+		<!-- scripts -->
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/login.js"></script>
+		<!-- end scripts -->
+
 	</body>
 </html>
