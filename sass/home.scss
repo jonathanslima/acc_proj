@@ -11,6 +11,22 @@
     border: 2px solid #fff;
     width: 450px;
 
+    .forgot-pass,
+    .remember-user{
+    	color: #fff;
+    	text-align: left;
+    	text-decoration: underline;
+    	width: 100%;
+    	display: inline-block;
+    	margin-top: 15px;
+    	font-size: 14px;
+    }
+
+    .remember-user{
+    	text-decoration: none;
+    	cursor: pointer;
+    }
+
     .input-group{
       margin-bottom: 20px;
 
@@ -30,10 +46,11 @@
 
 .pass-warning{
   width: 100%;
+  text-align: left;
 
   .text-muted{
-    color: #222 !important;
-    opacity: 0;
+    color: #00ff50 !important;
+    display: none;
   }
 }
 

@@ -1,1 +1,1 @@
-body{font-family:Roboto}.invalid-feedback{color:#fff700;text-align:left}.component-warning .alert{margin-bottom:0}
+body{font-family:Roboto}.invalid-feedback{color:#fff700;text-align:left}.component-warning .alert{margin-bottom:0;display:none}.component-warning .alert .fas{position:absolute;right:1.25rem;display:inline-block;top:15px;cursor:pointer}

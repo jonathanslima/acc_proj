@@ -16,21 +16,27 @@ $(document).ready(function(){
 				setTimeout(function(){
 					var token = JSON.stringify(response);
 					localStorage.setItem('token', token);
+
+					if($('#rememberUser').prop('checked')){
+						localStorage.setItem('rememberUser', $user.val());
+					}
+
 					$('.button-outline').addClass('button-check');
 				}, 1000);
 
 				setTimeout(function(){
-					window.location.href = '/list';				
+					window.location.href = '/list.html';				
 				}, 3000);
 			},
 			error: function(){
 				console.log('falhou');
-				$('.invalid-feedback').fadeIn();
-			},
-			complete: function(){
-				console.log('apareco sempre')
-
+				$('.alert-danger').slideDown();
+				$('.alert-danger span').text('Um erro aconteceu ao tentar fazer login, tente novamente :(');
 			}
 		});
-	})
+	});
+
+	$('#pass').on('focus', function(){
+		$('#passwordHelpInline').slideDown();
+	});
 });
