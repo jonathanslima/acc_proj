@@ -5,4 +5,45 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+
+  .form-login{
+    padding: 80px 50px;
+    border: 2px solid #fff;
+    width: 450px;
+
+    .input-group{
+      margin-bottom: 20px;
+
+      .form-control{
+        color: #fff;
+
+        &:focus{
+          caret-color: #fff;
+          box-shadow: none;
+          border-bottom: 2px solid #fff;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+.pass-warning{
+  width: 100%;
+
+  .text-muted{
+    color: #222 !important;
+    opacity: 0;
+  }
+}
+
+#pass{
+  &:focus{
+    .pass-warning{
+      .text-muted{
+        color: #222 !important;
+        opacity: 1;
+      }
+    }
+  }
 }
