@@ -3,26 +3,24 @@ $(document).ready(function(){
 		e.preventDefault();
 		var $user = $('#user');
 		var $pass = $('#pass');
+		$('.button-outline').addClass('button-spinner');
 
-		$.ajax({
-			url: "https://reqres.in/api/login",
+		$.get({
+			url: "https://reqres.in/api/login?delay=1",
 			type: "POST",
 			data: {
 			    "email": $user.val(),
 			    "password": $pass.val()
 			},
 			success: function(response){
-				$('.button-outline').addClass('button-spinner');
-				setTimeout(function(){
-					var token = JSON.stringify(response);
-					localStorage.setItem('token', token);
+				var token = JSON.stringify(response);
+				localStorage.setItem('token', token);
 
-					if($('#rememberUser').prop('checked')){
-						localStorage.setItem('rememberUser', $user.val());
-					}
+				if($('#rememberUser').prop('checked')){
+					localStorage.setItem('rememberUser', $user.val());
+				}
 
-					$('.button-outline').addClass('button-check');
-				}, 1000);
+				$('.button-outline').addClass('button-check');
 
 				setTimeout(function(){
 					window.location.href = '/list.html';				

@@ -26,12 +26,40 @@
 
 		<div class="container">
 			<div class="row">
-				<ul class="list-container list-unstyled"></ul>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Id <i class="fas fa-chevron-circle-down"></i><i class="fas fa-chevron-circle-up"></i></th>
+							<th scope="col">First name</th>
+							<th scope="col">Last name</th>
+							<th scope="col">Details</th>
+						</tr>
+					</thead>
+					
+					<tbody class="list-container"></tbody>
+				</table>
 
-				<button id="nextList" class="btn btn-primary">Next</button>
-				<button id="prevList" class="btn btn-primary">Prev</button>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li class="page-item">
+							<button id="prevList" class="page-link prev-list" disabled aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span>
+							</button>
+						</li>
+						<div class="block-pagination"></div>
+						<li class="page-item">
+							<button id="nextList" class="page-link next-list" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+								<span class="sr-only">Next</span>
+							</button>
+						</li>
+					</ul>
+				</nav>
 
-				<a href="../">voltar</a>
+				<br><br><br><br><br>
+
+				<a style="display: inline-block; width: 100%" href="../">voltar</a>
 			</div>
 		</div>	
 
