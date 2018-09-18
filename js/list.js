@@ -7,6 +7,7 @@ $(document).ready(function(){
 			$blockPagination = $('.block-pagination'),
 			$tbody = $('.list-container'),
 			tr,
+			totalPages = localStorage.getItem('totalPages'),
 			$numPage = 1;
 
 
@@ -52,8 +53,6 @@ $(document).ready(function(){
 	}
 
 	var mountPagination = function(){
-		var totalPages = localStorage.getItem('totalPages');
-
 		for(var i = 1; i <= totalPages; i++){
 			$blockPagination.append('<li class="page-item page"><a class="page-link" href="#">' + i + '</a></li>');
 		}
@@ -62,6 +61,11 @@ $(document).ready(function(){
 			$numPage = $(this).text();
 			$nextList.removeAttr('disabled');
 			$prevList.removeAttr('disabled');
+
+			if($numPage == totalPages){
+				$nextList.attr('disabled', 'disabled')
+				$nextList.addClass('disabled')
+			}
 	
 			cleanTable();
 			mountList($numPage);
@@ -77,7 +81,7 @@ $(document).ready(function(){
 		$prevList.removeAttr('disabled');
 		$numPage = parseInt($numPage) + 1;
 
-		if($numPage > 3){
+		if($numPage == totalPages){
 			console.log('contador next: ', $numPage);
 			$(this).attr('disabled', 'disabled')
 			$(this).addClass('disabled')
