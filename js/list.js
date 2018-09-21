@@ -1,14 +1,15 @@
 $(document).ready(function(){
 
-	var count = 1,
-			$nextList = $('#nextList'),
-			$prevList = $('#prevList'),
-			allUsersData,
+	var allUsersData,
+			arr,
 			$blockPagination = $('.block-pagination'),
+			count = 1,
+			$nextList = $('#nextList'),
+			$numPage = 1,
+			$prevList = $('#prevList'),
 			$tbody = $('.list-container'),
-			tr,
 			totalPages = localStorage.getItem('totalPages'),
-			$numPage = 1;
+			tr;
 
 
 	var mountList = function(count){
@@ -46,6 +47,25 @@ $(document).ready(function(){
 			}
 		});
 	}
+
+	var ordArrByIndex = function(){
+		arr = [];
+		$('.id').map(function(){
+			arr.push($(this).text());
+		})
+	}
+
+	$('.fa-angle-up').on('click', function(){
+		ordArrByIndex();
+		arr.reverse();
+		console.log(arr)
+	});
+
+	$('.fa-angle-down').on('click', function(){
+		ordArrByIndex();
+		arr.sort();
+		console.log(arr)
+	});
 
 	var cleanTable = function(){
 		$tbody.empty('.list-container-li');
