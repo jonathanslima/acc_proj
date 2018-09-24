@@ -28,7 +28,7 @@ $(document).ready(function(){
 							+ '<td class="fname">' + user.first_name + '</td>'
 							+ '<td class="lname">' + user.last_name + '</td>'
 							+ '<td>'
-							+ '<a href="javascript:;" class="list-container-a">' 
+							+ '<a href="#" class="list-container-a show-card-user">' 
 							+ '<i class="fas fa-address-card"></i>' 
 							+ '</a>'
 							+ '</td>'
@@ -48,24 +48,26 @@ $(document).ready(function(){
 		});
 	}
 
-	var ordArrByIndex = function(){
-		arr = [];
-		$('.id').map(function(){
-			arr.push($(this).text());
-		})
+	function sortTable(order, p) {
+    var asc   = order === 'asc';
+
+    $tbody.find('.list-container-li').sort(function(a, b) {
+        if (asc) {
+						return $('.' + p, a).text().localeCompare($('.' + p, b).text());
+						
+        } else {
+            return $('.' + p, b).text().localeCompare($('.' + p, a).text());
+        }
+    }).appendTo($tbody);
 	}
 
-	$('.fa-angle-up').on('click', function(){
-		ordArrByIndex();
-		arr.reverse();
-		console.log(arr)
-	});
+	var sortFunc = function(p){
+		sortTable('asc', p);
+	}
 
-	$('.fa-angle-down').on('click', function(){
-		ordArrByIndex();
-		arr.sort();
-		console.log(arr)
-	});
+	var reverseFunc = function(p){
+		sortTable('desc', p);
+	}
 
 	var cleanTable = function(){
 		$tbody.empty('.list-container-li');
@@ -94,6 +96,30 @@ $(document).ready(function(){
 			return $numPage;
 		})
 	}
+
+	$(document).on('click', $('.show-card-user'),  function(e){
+		e.preventDefault();
+		$.ajax({
+			url: "https://reqres.in/api/users/" + $(e.target).closest('.list-container-li').find('.id').text(),
+			type: "GET",
+			success: function(data){
+				console.log('entrou');
+				console.log(data);
+			},
+			error: function(){
+				console.log('entrou');
+				console.log('error!!!');
+			}
+		});
+	});
+
+	$('.orderByIndex').on('click', function(){sortFunc('id')});
+	$('.orderByFname').on('click', function(){sortFunc('fname')});
+	$('.orderByLname').on('click', function(){sortFunc('lname')});
+
+	$('.unorderByIndex').on('click', function(){reverseFunc('id')});
+	$('.unorderByFname').on('click', function(){reverseFunc('fname')});
+	$('.unorderByLname').on('click', function(){reverseFunc('lname')});
 
 	/* next page */
 	$nextList.on('click', function(){
