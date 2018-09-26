@@ -8,3 +8,46 @@
 .block-pagination{
   display: inline-flex;
 }
+
+/* home logged */
+.header-logged{
+  margin-bottom: 50px;
+  background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #008793, #a8eb12);
+
+  .accenture-logo{
+    height: 50px;
+  }
+
+  .user-area{
+	display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .list-inline{
+    	margin-bottom: 	0;
+
+    	.user-area-cmd{
+	    	color: 	#fff;
+	      display: inline-block;
+	      cursor: pointer;
+        margin-left: 15px;
+	    }
+    }
+  }
+}
+
+.table{
+	thead{
+		color: #00eaff;
+		background: #3a5a67;
+	}
+
+	.fa-angle-up{
+		padding: 0 5px;
+		padding-left: 15px;
+	}
+
+	.fa-angle-down{
+		padding: 0 5px;
+	}
+}

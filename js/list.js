@@ -19,7 +19,7 @@ $(document).ready(function(){
 			type: "GET",
 
 			success: function(response){
-				console.log(response);
+				// console.log(response);
 				allUsersData = response.data;
 
 				allUsersData.map(function(user){
@@ -28,7 +28,7 @@ $(document).ready(function(){
 							+ '<td class="fname">' + user.first_name + '</td>'
 							+ '<td class="lname">' + user.last_name + '</td>'
 							+ '<td>'
-							+ '<a href="#" class="list-container-a show-card-user">' 
+							+ '<a href="#" class="list-container-a show-card-user" data-toggle="modal">' 
 							+ '<i class="fas fa-address-card"></i>' 
 							+ '</a>'
 							+ '</td>'
@@ -38,6 +38,7 @@ $(document).ready(function(){
 					$tbody.append(tr);
 				})
 				localStorage.setItem('totalPages', response.total_pages);
+				$('.show-card-user').on('click', showCardUser);
 
 				return response;
 			},
@@ -97,21 +98,22 @@ $(document).ready(function(){
 		})
 	}
 
-	$(document).on('click', $('.show-card-user'),  function(e){
+	var showCardUser = function(e){
 		e.preventDefault();
 		$.ajax({
-			url: "https://reqres.in/api/users/" + $(e.target).closest('.list-container-li').find('.id').text(),
+			url: "https://reqres.in/api/users/" + $(this).closest('.list-container-li').find('.id').text(),
 			type: "GET",
-			success: function(data){
-				console.log('entrou');
-				console.log(data);
+			success: function(res){
+				console.log(res);
+				$('.user-details .img-user').attr('src', res.data.avatar);
+				$('.user-details .title-name').text(res.data.first_name + ' ' + res.data.last_name);
+				$('#exampleModal').modal();
 			},
 			error: function(){
-				console.log('entrou');
 				console.log('error!!!');
 			}
 		});
-	});
+	}
 
 	$('.orderByIndex').on('click', function(){sortFunc('id')});
 	$('.orderByFname').on('click', function(){sortFunc('fname')});
@@ -153,6 +155,12 @@ $(document).ready(function(){
 		}
 
 		mountList($numPage);
+	});
+
+	/* Logout */
+	$('.user-area-cmd .fa-sign-out-alt').on('click', function(){
+		localStorage.removeItem('token');
+		window.location.href = '/';
 	});
 
 	/* Call */
