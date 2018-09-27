@@ -37,6 +37,7 @@ $(document).ready(function(){
 					$('.spinner-table').remove();	
 					$tbody.append(tr);
 				})
+				$( "tr:odd()" ).css( "background-color", "#f9f9f9" );
 				localStorage.setItem('totalPages', response.total_pages);
 				$('.show-card-user').on('click', showCardUser);
 
@@ -93,6 +94,10 @@ $(document).ready(function(){
 			cleanTable();
 			mountList($numPage);
 			console.log($numPage);
+
+			$('.page-item.page').eq(0).addClass('active');
+			$('.page-item.page').removeClass('active');
+			$('.page-item.page').eq($numPage).addClass('active');
 	
 			return $numPage;
 		})

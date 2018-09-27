@@ -5,12 +5,23 @@
   cursor: pointer;
 }
 
-.block-pagination{
-  display: inline-flex;
+.next-list,
+.prev-list{
+  border: none;
+}
+
+.pagination{
+	justify-content: center;
+
+	.block-pagination{
+	  display: inline-flex;
+	}
 }
 
 /* home logged */
 .header-logged{
+	position: fixed;
+	width: 100%;
   margin-bottom: 50px;
   background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #008793, #a8eb12);
 
@@ -36,9 +47,16 @@
   }
 }
 
+.faixa{
+	height: 50px;
+	width: 	100%;
+	margin-bottom: 	30px;
+}
+
 .table{
+
 	thead{
-		color: #00eaff;
+		color: #f9f9f9;
 		background: #3a5a67;
 	}
 
