@@ -52,7 +52,40 @@
 
 		<div class="container">
 			<div class="row">
-				<table class="table col-lg-8 offset-lg-2">
+					<div class="col-lg-8">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fa fa-filter"></i></span>
+							</div>
+	
+							<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+	
+							<div class="input-group-append">
+								<button class=" btn btn-primary" id="filterTerm">Search <i class="fa fa-search"></i></button>
+							</div>
+						</div>
+					</div>
+					
+					<nav aria-label="navigation" class="col-lg-4">
+						<ul class="pagination">
+							<li class="page-item">
+								<button id="prevList" class="page-link prev-list" disabled aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+									<span class="sr-only">Previous</span>
+								</button>
+							</li>
+							<div class="block-pagination"></div>
+							
+							<li class="page-item">
+								<button id="nextList" class="page-link next-list" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+									<span class="sr-only">Next</span>
+								</button>
+							</li>
+						</ul>
+					</nav>
+
+				<table class="table col-lg-12">
 					<thead>
 						<tr>
 							<th scope="col">Id <i class="fas fa-angle-up orderByIndex"></i><i class="fas fa-angle-down unorderByIndex"></i></th>
@@ -64,25 +97,6 @@
 					
 					<tbody class="list-container"></tbody>
 				</table>
-
-				<nav aria-label="navigation" class="col-lg-8 offset-lg-2 text-center">
-					<ul class="pagination">
-						<li class="page-item">
-							<button id="prevList" class="page-link prev-list" disabled aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-								<span class="sr-only">Previous</span>
-							</button>
-						</li>
-						<div class="block-pagination"></div>
-						
-						<li class="page-item">
-							<button id="nextList" class="page-link next-list" aria-label="Next">
-								<span aria-hidden="true">&raquo;</span>
-								<span class="sr-only">Next</span>
-							</button>
-						</li>
-					</ul>
-				</nav>
 			</div>
 		</div>	
 
