@@ -10,8 +10,14 @@
   border: none;
 }
 
+.navy{
+  text-align: right;
+
+}
+
 .pagination{
 	justify-content: center;
+  display: inline-flex;
 
 	.block-pagination{
 	  display: inline-flex;
@@ -56,16 +62,26 @@
 .table{
 
 	thead{
-		color: #f9f9f9;
-		background: #3a5a67;
+		color: #333;
 	}
 
-	.fa-angle-up{
-		padding: 0 5px;
-		padding-left: 15px;
-	}
+	th{
+		position: relative;
 
-	.fa-angle-down{
-		padding: 0 5px;
+		.arrows{
+			position: absolute;
+		}
+
+		.fa-angle-up{
+			padding: 0 10px;
+			top: 	10px;
+			color: 	#3a5a67;
+		}
+
+		.fa-angle-down{
+			padding: 0 10px;
+			bottom: 	10px;
+			color: 	#3a5a67;
+		}
 	}
 }
