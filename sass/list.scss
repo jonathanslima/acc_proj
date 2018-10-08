@@ -18,6 +18,18 @@
 .pagination{
 	justify-content: center;
   display: inline-flex;
+	
+	.page-item{
+		.page-link{
+			color: #088fde;
+			background: none;
+			border: none;
+		}
+	}
+	
+	.active{
+		
+	}
 
 	.block-pagination{
 	  display: inline-flex;
@@ -29,7 +41,7 @@
 	position: fixed;
 	width: 100%;
   margin-bottom: 50px;
-  background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #008793, #a8eb12);
+  background-color: #088fde;
 
   .accenture-logo{
     height: 50px;
