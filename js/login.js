@@ -30,6 +30,7 @@ $(document).ready(function(){
 				console.log('falhou');
 				$('.alert-danger').slideDown();
 				$('.alert-danger span').text('Um erro aconteceu ao tentar fazer login, tente novamente :(');
+				$('.button-outline').removeClass('button-spinner');
 			}
 		});
 	});

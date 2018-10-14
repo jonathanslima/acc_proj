@@ -30,13 +30,13 @@
 			<div class="container-fluid">
 				<div class="container">
 					<div class="row">
-						<div class="col-10">
+						<div class="col-8">
 							<a href="/">
-								<img src="img/accenture-logo.png" class="accenture-logo" alt="">
+								<img src="img/accenture-logo.png" class="accenture-logo" alt="accenture">
 							</a>
 						</div>
 
-						<div class="col-2 user-area">
+						<div class="col-4 user-area">
 							<ul class="list-inline">	
 								<li class="user-area-cmd"><i class="fas fa-plus-circle"></i></li>
 								<li class="user-area-cmd"><i class="fas fa-user"></i></li>
@@ -53,12 +53,12 @@
 		<div class="container">
 			<div class="row">
 					<div class="col-lg-8">
-						<div class="input-group">
+						<div class="input-group filter">
 							<div class="input-group-prepend">
 								<span class="input-group-text"><i class="fa fa-filter"></i></span>
 							</div>
 	
-							<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+							<input type="text" id="filter" class="form-control" autofocus placeholder="Filter by id, first name or last name" aria-label="Username" aria-describedby="basic-addon1">
 	
 							<div class="input-group-append">
 								<button class=" btn btn-primary" id="filterTerm">Search <i class="fa fa-search"></i></button>
@@ -105,25 +105,29 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">User details</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
-		      <div class="modal-body user-details">
+		      <div class="modal-body text-center user-details">
 	        	<figure class="img">
-	        		<img class="img-user" src="" alt="">
+	        		<img class="img-user" src="" alt="user photo">
 	        	</figure>
 	        	<h2 class="title title-name"></h2>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
 
+
+		<form action="">
+
+		</form>
 		<!-- scripts -->
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

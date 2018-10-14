@@ -9,8 +9,9 @@ $(document).ready(function(){
 			$prevList = $('#prevList'),
 			$tbody = $('.list-container'),
 			totalPages = localStorage.getItem('totalPages'),
-			tr;
-
+			tr,
+			$this, 
+			$searchedTerm;
 
 	var mountList = function(count){
 		$.ajax({
@@ -29,7 +30,7 @@ $(document).ready(function(){
 							+ '<td class="lname">' + user.last_name + '</td>'
 							+ '<td>'
 							+ '<a href="#" class="list-container-a show-card-user" data-toggle="modal">' 
-							+ '<i class="fas fa-address-card"></i>' 
+							+ '<i class="fas fa-check-circle"></i>' 
 							+ '</a>'
 							+ '</td>'
 							+ '</tr>';
@@ -51,7 +52,7 @@ $(document).ready(function(){
 	}
 
 	function sortTable(order, p) {
-    var asc   = order === 'asc';
+    var asc = order === 'asc';
 
     $tbody.find('.list-container-li').sort(function(a, b) {
         if (asc) {
@@ -90,15 +91,15 @@ $(document).ready(function(){
 				$nextList.attr('disabled', 'disabled')
 				$nextList.addClass('disabled')
 			}
+
+			var addCurrent = $numPage;
+			$('.page-item.page').removeClass('current');
+			$('.page-item.page').eq(--addCurrent).addClass('current');
 	
 			cleanTable();
 			mountList($numPage);
 			console.log($numPage);
 
-			$('.page-item.page').eq(0).addClass('active');
-			$('.page-item.page').removeClass('active');
-			$('.page-item.page').eq($numPage).addClass('active');
-	
 			return $numPage;
 		})
 	}
@@ -128,11 +129,32 @@ $(document).ready(function(){
 	$('.unorderByFname').on('click', function(){reverseFunc('fname')});
 	$('.unorderByLname').on('click', function(){reverseFunc('lname')});
 
+	/* Filter by search */
+	$('#filter').on('keyup', function(){
+		$this = $(this);
+		compareInput();
+	});
+
+
+	function compareInput(){		
+		$searchedTerm = $this.val().toLowerCase();
+	
+		$('.id').each(function() {
+		  var $conteudoCelula = $(this).text();
+		  var corresponde = $conteudoCelula.toLowerCase().indexOf($searchedTerm) >= 0;
+	
+		  $(this).parent().css('display', corresponde ? '' : 'none');
+		});
+	}
+
 	/* next page */
 	$nextList.on('click', function(){
 		cleanTable();
 		$prevList.removeAttr('disabled');
 		$numPage = parseInt($numPage) + 1;
+		var addCurrent = $numPage;
+		$('.page-item.page').removeClass('current');
+		$('.page-item.page').eq(--addCurrent).addClass('current');
 
 		if($numPage == totalPages){
 			console.log('contador next: ', $numPage);
@@ -147,19 +169,22 @@ $(document).ready(function(){
 
 	/* prev page */
 	$prevList.on('click', function(){
-		cleanTable();
-		$nextList.removeAttr('disabled');
-		$numPage = $numPage - 1;
-
-		if($numPage < 2){
+		if($numPage == 1){
 			console.log('contador prev: ', $numPage);
 			$(this).attr('disabled', 'disabled')
 			$(this).addClass('disabled')
 		}else{
-			$(this).removeClass('disabled')
-		}
+			$(this).removeClass('disabled');
+			cleanTable();
+			$nextList.removeAttr('disabled');
+			$numPage = $numPage - 1;
+			var addCurrent = $numPage;
 
-		mountList($numPage);
+			$('.page-item.page').removeClass('current');
+			$('.page-item.page').eq(--addCurrent).addClass('current');
+
+			mountList($numPage);
+		}
 	});
 
 	/* Logout */
@@ -171,5 +196,6 @@ $(document).ready(function(){
 	/* Call */
 	mountList();
 	mountPagination();
+	$('.page-item.page').eq(0).addClass('current');
 
 });

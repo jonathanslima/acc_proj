@@ -10,25 +10,46 @@
   border: none;
 }
 
-.navy{
-  text-align: right;
+.filter{
+	height: 50px;
 
+	#filter{
+		height: 50px;
+	}
+
+	.btn{
+		background: #088fde;
+	}
+}
+
+.navy{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 50px;
+}
+
+.current{
+	font-weight: bold;
+	font-size: 22px;
+	margin-top: -4px;
 }
 
 .pagination{
 	justify-content: center;
-  display: inline-flex;
+	display: inline-flex;
+	margin-bottom: 0;
 	
 	.page-item{
 		.page-link{
 			color: #088fde;
 			background: none;
 			border: none;
+			
+			&:focus{
+				box-shadow: none;
+			}
 		}
-	}
-	
-	.active{
-		
 	}
 
 	.block-pagination{
@@ -40,15 +61,20 @@
 .header-logged{
 	position: fixed;
 	width: 100%;
+	z-index: 5;
   margin-bottom: 50px;
   background-color: #088fde;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70px;
 
   .accenture-logo{
-    height: 50px;
+    height: 70px;
   }
 
   .user-area{
-	display: flex;
+		display: flex;
     justify-content: flex-end;
     align-items: center;
 
@@ -59,26 +85,45 @@
 	    	color: 	#fff;
 	      display: inline-block;
 	      cursor: pointer;
-        margin-left: 15px;
+				margin-left: 15px;
+				font-size: 24px;
 	    }
     }
   }
 }
 
 .faixa{
-	height: 50px;
+	height: 70px;
 	width: 	100%;
-	margin-bottom: 	30px;
+	margin-bottom: 	50px;
 }
 
 .table{
-
+	margin-top: 50px;
+	
 	thead{
 		color: #333;
 	}
 
+	.list-container{
+		.list-container-li{
+			border-left: 3px solid #088fde;
+			border-bottom: 3px solid #d8d8d8;
+			border-top: 0;
+
+			.id{
+				color: #088fde;
+			}
+
+			.show-card-user{
+				color: #268c3d;
+			}
+		}
+	}
+
 	th{
 		position: relative;
+		border-bottom: 3px solid #d8d8d8;
 
 		.arrows{
 			position: absolute;
@@ -87,13 +132,45 @@
 		.fa-angle-up{
 			padding: 0 10px;
 			top: 	10px;
-			color: 	#3a5a67;
+			color: 	#088fde;
 		}
 
 		.fa-angle-down{
 			padding: 0 10px;
 			bottom: 	10px;
-			color: 	#3a5a67;
+			color: 	#088fde;
+		}
+	}
+}
+
+/* MODAL */
+.modal{
+	.modal-body{
+		text-align: center;
+
+		.img{
+			.img-user{
+			border-radius: 50%;		
+			}
+		}
+	}
+
+	.modal-header{
+		color: #fff;
+		background: #088fde;
+
+		button{
+			span{
+				color: #fff;
+
+			}
+		}
+	}
+
+	.modal-footer{
+		.btn-primary{
+			color: #fff;
+			background: #088fde;
 		}
 	}
 }
