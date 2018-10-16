@@ -121,6 +121,36 @@ $(document).ready(function(){
 		});
 	}
 
+	var contador = 0;
+	var arrBoolean = [];
+	var compareInput = function(){		
+		$searchedTerm = $this.val().toLowerCase();
+	
+		$('.id, .fname, .lname').each(function() {
+		  var $conteudoCelula = $(this).text();
+			
+			if($conteudoCelula){
+				var corresponde = $conteudoCelula.toLowerCase().indexOf($searchedTerm) >= 0;
+				
+				arrBoolean.push(corresponde);
+				contador++;
+
+				if(contador > 2){
+					if(arrBoolean[0] || arrBoolean[1] || arrBoolean[2]){
+						$(this).parent().css('display', 'table-row');
+						contador = 0;
+						arrBoolean = [];
+					}else{
+						$(this).parent().css('display', 'none');
+						contador = 0;
+						arrBoolean = [];
+					}
+				}
+			}
+			
+		});
+	}
+
 	$('.orderByIndex').on('click', function(){sortFunc('id')});
 	$('.orderByFname').on('click', function(){sortFunc('fname')});
 	$('.orderByLname').on('click', function(){sortFunc('lname')});
@@ -134,18 +164,6 @@ $(document).ready(function(){
 		$this = $(this);
 		compareInput();
 	});
-
-
-	function compareInput(){		
-		$searchedTerm = $this.val().toLowerCase();
-	
-		$('.id').each(function() {
-		  var $conteudoCelula = $(this).text();
-		  var corresponde = $conteudoCelula.toLowerCase().indexOf($searchedTerm) >= 0;
-	
-		  $(this).parent().css('display', corresponde ? '' : 'none');
-		});
-	}
 
 	/* next page */
 	$nextList.on('click', function(){
