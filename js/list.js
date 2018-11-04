@@ -51,6 +51,12 @@ $(document).ready(function(){
 		});
 	}
 
+	function checkLogged(){
+		if(!localStorage.getItem('token')){
+			window.location.href = "/";
+		}
+	}
+
 	function sortTable(order, p) {
     var asc = order === 'asc';
 
@@ -209,6 +215,61 @@ $(document).ready(function(){
 	$('.user-area-cmd .fa-sign-out-alt').on('click', function(){
 		localStorage.removeItem('token');
 		window.location.href = '/';
+	});
+
+	/* Checking time to expire */
+	var now;
+	var timeSetToExpire;
+	var t;
+	var resetCounter = function(){
+		now = moment();
+		timeSetToExpire = moment(localStorage.getItem('expire_in'));
+	};
+	var showCounter = function(){
+		console.log('t showcounter: ', t);		
+		$('.alert-counter').show();
+
+		$('.timeExpiring').text(t.toString().length == 5 ? t.toString().substr(0,2) : '0' + t.toString().substr(0,1));
+	};
+	var initCounter = function(){
+		t = timeSetToExpire.diff(now);
+
+		setTimeout(function(){
+			t = t - 1000;
+			console.log('t initcounter: ', t);
+			if(t <= 60000){
+				showCounter();
+			}
+
+			if(t <= 1){
+				localStorage.removeItem('token');
+				window.location.href = '/';
+			}
+		}, 1000);
+	};
+	var checkTwoMin = function(){
+		resetCounter();
+		console.log('checando...');
+
+		if(timeSetToExpire.diff(now) <= 120000){
+			initCounter();
+		}
+	};
+	var checkTimeInterval = setInterval(checkTwoMin, 1000);
+
+	$('.alert-counter').on('click', function(){
+		clearInterval(checkTimeInterval);
+		var date = moment(new Date());
+		localStorage.setItem('expire_in', date.add(3, 'minutes'));
+		setInterval(checkTwoMin, 1000);
+		$('.alert-counter').slideUp();
+		$('.alert-success').text('Sessão renovada!');
+		$('.alert-success').slideDown();
+		resetCounter();
+		t = timeSetToExpire.diff(now);
+		setTimeout(function(){
+			$('.alert-success').slideUp();
+		}, 1000);
 	});
 
 	/* Call */

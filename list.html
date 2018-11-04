@@ -15,14 +15,17 @@
 	</head>
 	<body>
 		<div class="component-warning">
-			<div class="alert alert-success" role="alert">
+			<div class="alert alert-success text-center" role="alert">
 			  A simple success alert—check it out!
 			</div>
-			<div class="alert alert-danger" role="alert">
+			<div class="alert alert-danger text-center" role="alert">
 			  A simple danger alert—check it out!
 			</div>
-			<div class="alert alert-warning" role="alert">
+			<div class="alert alert-warning text-center" role="alert">
 			  A simple warning alert—check it out!
+			</div>
+			<div class="alert alert-warning alert-counter text-center" role="alert">
+			  Você será deslogado em <mark class="timeExpiring">00</mark> segundos. <button class="btn btn-success">Renovar sessão</button>
 			</div>
 		</div>
 
@@ -131,6 +134,7 @@
 		<!-- scripts -->
 		<script src="node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/moment.min.js"></script>
 		<script src="js/list.js"></script>
 		<!-- end scripts -->
 

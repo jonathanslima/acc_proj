@@ -6,7 +6,7 @@ $(document).ready(function(){
 		$('.button-outline').addClass('button-spinner');
 
 		$.get({
-			url: "https://reqres.in/api/login?delay=1",
+			url: "https://reqres.in/api/login",
 			type: "POST",
 			data: {
 			    "email": $user.val(),
@@ -14,6 +14,8 @@ $(document).ready(function(){
 			},
 			success: function(response){
 				var token = JSON.stringify(response);
+				var date = moment(new Date());
+				localStorage.setItem('expire_in', date.add(3, 'minutes'));
 				localStorage.setItem('token', token);
 
 				if($('#rememberUser').prop('checked')){
