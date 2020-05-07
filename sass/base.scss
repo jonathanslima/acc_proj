@@ -1,0 +1,53 @@
+body{
+	font-family: Roboto;
+}
+
+.invalid-feedback{
+	color: #fff700;
+	text-align: left;
+}
+
+.hide{
+	display: none !important;
+}
+
+.component-warning{
+	.alert{
+		margin-bottom: 0;
+		display: none;
+
+		.fas{
+	    position: absolute;
+	    right: 1.25rem;
+	    display: inline-block;
+	    top: 15px;
+	    cursor: pointer;
+		}
+	}
+
+	.alert-success{
+
+	}
+
+	.alert-warning{
+
+	}
+
+	.alert-danger{
+
+	}
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

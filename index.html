@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Acc Projeto</title>
+
+		<meta name="viewport" content="width=device-width">
+
+		<!-- styles -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/all.css" rel="stylesheet">
+		<!-- end styles -->
+
+	</head>
+	<body>
+		<div class="component-warning">
+			<div class="alert alert-success" role="alert">
+			  <span></span> <i class="fas fa-times"></i>
+			</div>
+			<div class="alert alert-danger text-center" role="alert">
+			  <span></span> <i class="fas fa-times"></i>
+			</div>
+			<div class="alert alert-warning" role="alert">
+			  <span></span> <i class="fas fa-times"></i>
+			</div>
+		</div>
+
+		<section class="home-access">
+			<form id="form-login" class="form-login form-signin text-center">
+				<div class="text-center">
+					<img src="img/Accenture-Digital-White.png" alt="">
+				</div>
+				
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<div class="input-group-text"><i class="far fa-envelope"></i></div>
+					</div>
+					<input id="user" class="input form-control input-login" type="text" placeholder="E-mail" autofocus />
+					<div class="invalid-feedback">Example invalid feedback text</div>
+				</div>
+
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<div class="input-group-text"><i class="fas fa-unlock-alt"></i></div>
+					</div>
+					<input id="pass" class="input form-control input-login" type="text" placeholder="Password" />
+					<div class="invalid-feedback">Example invalid feedback text</div>
+					<div class="pass-warning">
+						<small id="passwordHelpInline" class="text-muted"> Must be 8-20 characters long.</small>
+					</div>					
+				</div>
+				
+				<button id="btn-login" class="btn button-outline text-uppercase">
+					<span>Enter</span> 
+					<img src="img/spinner.gif" alt="processing login" class="spinner">
+					<img src="img/check.gif" alt="sucess login" class="check">
+				</button>
+
+				<a class="forgot-pass" href="">Forgot password?</a>
+
+				<label for="rememberUser" class="remember-user"><input id="rememberUser" type="checkbox" name="remember-user"> Remember</label>
+			</form>
+		</section>
+
+		<!-- scripts -->
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/moment.min.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/home.js"></script>
+		<script src="js/general.js"></script>
+		<!-- end scripts -->
+
+	</body>
+</html>

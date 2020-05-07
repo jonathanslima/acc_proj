@@ -1,0 +1,85 @@
+.home-access{
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  .form-login{
+    padding: 0px 50px 80px;
+    width: 450px;
+
+    .forgot-pass,
+    .remember-user{
+    	color: #fff;
+    	text-align: left;
+    	text-decoration: underline;
+    	width: 100%;
+    	display: inline-block;
+    	margin-top: 15px;
+    	font-size: 14px;
+    }
+
+    .remember-user{
+    	text-decoration: none;
+    	cursor: pointer;
+    }
+
+    .input-group{
+      margin-bottom: 20px;
+
+      .form-control{
+        color: #fff;
+
+        &:focus{
+          caret-color: #fff;
+          box-shadow: none;
+          border-bottom: 2px solid #fff;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+.pass-warning{
+  width: 100%;
+  text-align: left;
+
+  .text-muted{
+    color: #00ff50 !important;
+    display: none;
+  }
+}
+
+#pass{
+  &:focus{
+    .pass-warning{
+      .text-muted{
+        color: #222 !important;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .home-access{
+    .form-login{
+      border: 2px solid #fff;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

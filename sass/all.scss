@@ -1,0 +1,18 @@
+/*!
+	Theme Name: Acc Project v 1.0
+	Author: Jonathan Lima
+	Version: 1.0 (npm, bootstrap, sass)
+	Project author: Jonathan Lima
+	Project: Acc Project
+	Date: 12/09/2018
+*/
+
+/* General */
+@import "base.scss";
+
+/* Components */
+@import "inputs.scss";
+
+/* Pages */
+@import "home.scss";
+@import "list.scss";

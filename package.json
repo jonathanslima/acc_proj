@@ -1,0 +1,13 @@
+{
+  "name": "Acc-proj",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^4.1.3",
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "jquery": "^3.3.1"
+  }
+}

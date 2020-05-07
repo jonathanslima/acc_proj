@@ -1,0 +1,80 @@
+/* Colors */
+$white: #fff;
+
+.input{
+}
+
+.input-login::placeholder{
+  color: #fff;
+}
+
+.input-login{
+  background: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid $white;
+  &:active,
+  &:focus,
+  &:hover{
+    background: none;
+    outline: none;
+  }
+}
+
+/* Buttons */
+.button-outline{
+  transition: 500ms all linear;
+  font-weight: bold;
+	width: 100%;
+  background: none;
+  margin-top: 30px;
+  border: 2px solid $white;
+  color: $white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+
+  &:hover{
+    background: #fff;
+    color: #004d7a;
+  }
+
+  .spinner,
+  .check{
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    top: 8px;
+    display: none;
+  }
+}
+
+.button-spinner,
+.button-check{
+  width: auto;
+  background: #fff;
+
+  span{
+    opacity: 0;
+    font-size: 10px
+  }
+}
+
+.button-check{
+  .check{
+    display: block;
+    width: 150px;
+    left: -48px;
+    top: -30px;
+  }
+}
+
+.button-spinner{
+  .spinner{
+    display: block;
+    width: 50%;
+    left: 25%;
+    top: 13px;
+  }
+}
